@@ -17,7 +17,6 @@ const Favorites = () => {
   const { container } = useStyles();
 
   if (error) {
-    console.log('!!!!! ', error);
     return (
       <h1>Error...</h1>
     );

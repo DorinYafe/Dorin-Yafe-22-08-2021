@@ -27,7 +27,6 @@ const CurrentCity = () => {
   const { Temperature, Link } = currentCity || {};
 
   if (error) {
-    console.log('!!! ', error);
     return (
       <h1>Error</h1>
     );

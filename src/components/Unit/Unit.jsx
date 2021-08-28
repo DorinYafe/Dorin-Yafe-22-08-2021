@@ -28,10 +28,6 @@ function Unit({ temperature, link }) {
     .when(path(['Maximum','Value']), pipe(path(['Maximum', 'Value']), convertFarenheit))
     .orElse('');
 
-  React.useEffect(() => {
-    console.log('!!! ', temperature);
-  }, [temperature]);
-
   const getSign = () => isCelsius ? '°C' : '°F';
 
   return (
