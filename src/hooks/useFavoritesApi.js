@@ -15,10 +15,12 @@ const useFavoritesApi = () => {
   
       Promise.all(favorites.map(getWeather))
         .then((results) => {
+          debugger;
           dispatch({ type: SET_CURRENT_FAVORITES, payload: results });
           dispatch({ type: SET_LOADING, payload: false });
   
         }).catch((error) => {
+          debugger;
           dispatch({ type: SET_ERROR, payload: error });
           dispatch({ type: SET_LOADING, payload: false });
         });

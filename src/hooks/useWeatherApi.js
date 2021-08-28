@@ -32,11 +32,13 @@ const useWeatherApi = () => {
       Promise.all(URLS.map(async (url) => await axios.get(url)
         .then(prop('data'))))
         .then(([[currentCity], { DailyForecasts }]) => {
+          debugger;
           dispatch({ type: SET_WEATHER, payload: currentCity });
           dispatch({ type: SET_FIVE_DAYS_FORECAST, payload: DailyForecasts });
           dispatch({ type: SET_LOADING, payload: false });
 
         }).catch((error) => {
+          debugger;
           dispatch({ type: SET_ERROR, payload: error });
           dispatch({ type: SET_LOADING, payload: false });
         });
