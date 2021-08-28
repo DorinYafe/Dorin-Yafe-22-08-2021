@@ -9,54 +9,31 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Divider, Drawer, List, ListItem, useMediaQuery } from '@material-ui/core';
 import { equals, pipe, subtract, length, __ } from 'ramda';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1
-  },
-  drawer: {
-    backgroundColor: 'darkblue',
-    fontSize: '22px'
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
-  title: {
-    flexGrow: 1
-  }
-}));
+import useStyles from './Navigation.style';
 
 const Navigation = () => {
 
   const history = useHistory();
-  const classes = useStyles();
+  const { root , menuButton, title } = useStyles();
   const isMobile = useMediaQuery('(max-width: 450px)');
 
   const [ open, setOpen ] = React.useState(false);
 
+  const buttonsConfig = [{ title: 'Home', path: '/'}, {title: 'Favorites', path: '/favorites'}];
 
-  const navigationButtons = [
+  const navigationButtons = buttonsConfig.map(({ title, path }) => (
     <Button 
-      key='nav-btn-1'
+      key={`btn-${title}`}
       color="inherit" 
       onClick={() => {
-        history.push('/');
+        history.push(path);
         setOpen(false);
       }}
     >
-      <Typography>Home</Typography>
-    </Button>,
-    <Button 
-      key='nav-btn-2'
-      color="inherit" 
-      onClick={() => {
-        history.push('/favorites');
-        setOpen(false);
-      }}
-    >
-      <Typography>Favorites</Typography>
+      <Typography>{title}</Typography>
     </Button>
-  ];
+  ));
+
 
   const ListWrapper = ({ list }) => {
     const isEndOfArry = (index) => pipe(length, subtract(__,1), equals(index));
@@ -81,7 +58,7 @@ const Navigation = () => {
 
   return (
     <>
-      <div className={classes.root}>
+      <div className={root}>
         <AppBar position="static">
           <Toolbar>
             {
@@ -89,7 +66,7 @@ const Navigation = () => {
                 <>
                   <IconButton 
                     edge="start" 
-                    className={classes.menuButton} 
+                    className={menuButton} 
                     color="inherit" 
                     aria-label="menu"
                     onClick={() => setOpen(true)}
@@ -109,7 +86,7 @@ const Navigation = () => {
             }
             <Typography 
               variant="h6" 
-              className={classes.title}
+              className={title}
             >
             Herolo Weather Task
             </Typography>

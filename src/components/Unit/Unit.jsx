@@ -3,7 +3,7 @@ import { path, map, pipe, join, split } from 'ramda';
 import React from 'react';
 import { toTitle } from '../../common/functions';
 import Match from '../../common/PatternMatching';
-import useToggle from '../../hooks/useUnit';
+import useUnit from '../../hooks/useUnit';
 import { extractCity } from '../../redux/utils';
 import useStyles from './Unit.style';
 
@@ -11,7 +11,7 @@ const proccessCityName = pipe(extractCity, split('-'), map(toTitle), join('-'));
 
 function Unit({ temperature, link }) {
 
-  const { toggle, isCelsius } = useToggle();
+  const { toggle, isCelsius } = useUnit();
   const { unitWrapper, cityTitle, container } = useStyles();
 
   const cityName = proccessCityName(link);
