@@ -30,6 +30,11 @@ const useWeatherApi = () => {
       //   });
 
       Promise.all(URLS.map(async (url) => await axios.get(url)
+        .then(x => {
+          debugger;
+          const rrrrr = x;
+          return x;
+        })
         .then(prop('data'))))
         .then(([[currentCity], { DailyForecasts }]) => {
           debugger;
