@@ -5,12 +5,14 @@ const routeMapping = Object.freeze({
   home: {
     path: '/',
     exact: true,
-    component: Home
+    component: Home,
+    name: 'Home'
   },
   favorites: {
     path: '/favorites',
     exact: true,
-    component: Favorites
+    component: Favorites,
+    name: 'Favorites'
   }
 });
 

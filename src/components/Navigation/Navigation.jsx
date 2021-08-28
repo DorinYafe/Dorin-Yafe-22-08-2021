@@ -8,8 +8,9 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Divider, Drawer, List, ListItem, useMediaQuery } from '@material-ui/core';
-import { equals, pipe, subtract, length, __ } from 'ramda';
+import { equals, pipe, subtract, length, __, values } from 'ramda';
 import useStyles from './Navigation.style';
+import routeMapping from '../../config/routingConstants';
 
 const Navigation = () => {
 
@@ -19,9 +20,7 @@ const Navigation = () => {
 
   const [ open, setOpen ] = React.useState(false);
 
-  const buttonsConfig = [{ title: 'Home', path: '/'}, {title: 'Favorites', path: '/favorites'}];
-
-  const navigationButtons = buttonsConfig.map(({ title, path }) => (
+  const navigationButtons = values(routeMapping).map(({ name, path }) => (
     <Button 
       key={`btn-${title}`}
       color="inherit" 
@@ -30,7 +29,7 @@ const Navigation = () => {
         setOpen(false);
       }}
     >
-      <Typography>{title}</Typography>
+      <Typography>{name}</Typography>
     </Button>
   ));
 
