@@ -1,4 +1,4 @@
-export const currentCity = {
+export const currentCityMock = {
   EpochTime: 1629981600,
   HasPrecipitation: false,
   IsDayTime: true,

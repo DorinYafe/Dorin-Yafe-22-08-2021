@@ -1,6 +1,6 @@
 // location: London
 
-export const autocomplete = [
+export const autocompleteMock = [
   {
     "Version": 1,
     "Key": "328328",

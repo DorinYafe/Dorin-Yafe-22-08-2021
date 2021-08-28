@@ -1,4 +1,4 @@
-export const fiveDays = {
+export const fiveDaysMock = {
   "Headline": {
     "EffectiveDate": "2021-08-22T20:00:00+03:00",
     "EffectiveEpochDate": 1629651600,
@@ -31,12 +31,12 @@ export const fiveDays = {
       "Temperature": {
         "Minimum": {
           "Value": 25.4,
-          "Unit": "C",
+          "Unit": "F",
           "UnitType": 17
         },
         "Maximum": {
           "Value": 32.1,
-          "Unit": "C",
+          "Unit": "F",
           "UnitType": 17
         }
       },
@@ -285,12 +285,12 @@ export const fiveDays = {
       "Temperature": {
         "Minimum": {
           "Value": 23.2,
-          "Unit": "C",
+          "Unit": "F",
           "UnitType": 17
         },
         "Maximum": {
           "Value": 31.1,
-          "Unit": "C",
+          "Unit": "F",
           "UnitType": 17
         }
       },
@@ -539,12 +539,12 @@ export const fiveDays = {
       "Temperature": {
         "Minimum": {
           "Value": 25.5,
-          "Unit": "C",
+          "Unit": "F",
           "UnitType": 17
         },
         "Maximum": {
           "Value": 31.2,
-          "Unit": "C",
+          "Unit": "F",
           "UnitType": 17
         }
       },
@@ -793,12 +793,12 @@ export const fiveDays = {
       "Temperature": {
         "Minimum": {
           "Value": 25.1,
-          "Unit": "C",
+          "Unit": "F",
           "UnitType": 17
         },
         "Maximum": {
           "Value": 32,
-          "Unit": "C",
+          "Unit": "F",
           "UnitType": 17
         }
       },
@@ -1047,12 +1047,12 @@ export const fiveDays = {
       "Temperature": {
         "Minimum": {
           "Value": 27,
-          "Unit": "C",
+          "Unit": "F",
           "UnitType": 17
         },
         "Maximum": {
           "Value": 32.2,
-          "Unit": "C",
+          "Unit": "F",
           "UnitType": 17
         }
       },

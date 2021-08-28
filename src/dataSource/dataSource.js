@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { BASE_URL, API_KEY6 } from '../config/weatherConstants';
-import { pipe, prop, head, path } from 'ramda';
+import { BASE_URL, API_KEY6, API_KEY5, API_KEY4 } from '../config/weatherConstants';
+import { pipe, prop, head, path, map, pick } from 'ramda';
 
 export const initialState = {
   data: null,
@@ -9,14 +9,18 @@ export const initialState = {
 };
 
 export const urls = (locationKey) => Object.freeze({
-  weather: `${BASE_URL}currentconditions/v1/${locationKey}?apikey=${API_KEY6}&language=en-us`,
-  fiveDaysForecast: `${BASE_URL}forecasts/v1/daily/5day/${locationKey}?apikey=${API_KEY6}&language=en-us`
+  weather: `${BASE_URL}currentconditions/v1/${locationKey}?apikey=${API_KEY4}&language=en-us`,
+  fiveDaysForecast: `${BASE_URL}forecasts/v1/daily/5day/${locationKey}?apikey=${API_KEY4}&language=en-us`
 });
 
 export const getWeather = async (locationKey) => await axios.get(
-  `${BASE_URL}currentconditions/v1/${locationKey}?apikey=${API_KEY6}&language=en-us`
+  `${BASE_URL}currentconditions/v1/${locationKey}?apikey=${API_KEY4}&language=en-us`
 ).then(pipe(prop('data'), head));
 
 export const getFiveDaysForecast = async (locationKey) => await axios.get(
-  `${BASE_URL}forecasts/v1/daily/5day/${locationKey}?apikey=${API_KEY6}&language=en-us`
+  `${BASE_URL}forecasts/v1/daily/5day/${locationKey}?apikey=${API_KEY4}&language=en-us`
 ).then(path(['data', 'DailyForecasts']));
+
+export const autoCompleteSearch = async (locationName) => axios.get(
+  `${BASE_URL}locations/v1/cities/autocomplete?apikey=${API_KEY4}&q=${locationName}&language=en-us`)
+  .then(pipe(prop('data'), map(pick(['Key', 'LocalizedName']))));

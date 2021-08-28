@@ -5,7 +5,7 @@ import {
 
 const weatherState = {
   currentCity: null,
-  fiveDaysForecast:  [],
+  fiveDaysForecasts:  [],
   currentLocationKey: TEL_AVIV_LOCATION_KEY,
   loading: true,
   error: null
@@ -21,7 +21,7 @@ const weatherReducer = (state = weatherState, { type, payload }) => {
     case SET_FIVE_DAYS_FORECAST:
       return {
         ...state,
-        fiveDaysForecast: payload
+        fiveDaysForecasts: payload
       };
     case SET_WEATHER:
       return {

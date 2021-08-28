@@ -10,7 +10,7 @@ function App() {
 
   const history = createBrowserHistory();
 
-  // useWeatherApi();
+  useWeatherApi();
 
   return (
     <BrowserRouter history={history}>

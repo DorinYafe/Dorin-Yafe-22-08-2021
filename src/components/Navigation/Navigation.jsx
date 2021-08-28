@@ -7,8 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { isMobile } from 'react-device-detect';
-import { Divider, Drawer, List, ListItem } from '@material-ui/core';
+import { Divider, Drawer, List, ListItem, useMediaQuery } from '@material-ui/core';
 import { equals, pipe, subtract, length, __ } from 'ramda';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,28 +30,31 @@ const Navigation = () => {
 
   const history = useHistory();
   const classes = useStyles();
+  const isMobile = useMediaQuery('(max-width: 450px)');
 
   const [ open, setOpen ] = React.useState(false);
 
 
   const navigationButtons = [
     <Button 
+      key='nav-btn-1'
       color="inherit" 
       onClick={() => {
         history.push('/');
         setOpen(false);
       }}
     >
-          Home
+      <Typography>Home</Typography>
     </Button>,
     <Button 
+      key='nav-btn-2'
       color="inherit" 
       onClick={() => {
         history.push('/favorites');
         setOpen(false);
       }}
     >
-          Favorites
+      <Typography>Favorites</Typography>
     </Button>
   ];
 
@@ -112,7 +114,6 @@ const Navigation = () => {
             Herolo Weather Task
             </Typography>
             { !isMobile && navigationButtons  }
-
           </Toolbar>
         </AppBar>
       </div> 

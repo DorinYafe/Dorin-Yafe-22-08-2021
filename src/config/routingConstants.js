@@ -1,5 +1,5 @@
-import Home from '../components/Home/Home';
-import Favorites from '../components/Favorites/Favorites';
+import Home from '../pages/Home/Home';
+import Favorites from '../pages/Favorites/Favorites';
 
 const routeMapping = Object.freeze({
   home: {
